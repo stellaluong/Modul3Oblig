@@ -15,12 +15,14 @@ namespace FamilyTree
         public Person Mother { get; set; }
 
         public string GetDescription()
-        {
-            var startTxt = $"{FirstName} {LastName} (Id:{Id}) Father: {Father?.FirstName} (Id:{Father?.Id}) Mother: {Mother?.FirstName} (Id:{Mother?.Id})";
+            {
+                var startTxt = "";
+                if (FirstName != null) startTxt += FirstName + " ";
+                if (LastName != null) startTxt += LastName + " ";
+                startTxt += $"(Id:{Id})";
 
-            return startTxt;
-
-        }
+                return startTxt;
+            }
         public void ShowPerson()
         {
             Console.WriteLine(GetDescription());
